@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,100italic,300italic,400italic,500italic,700italic,900italic');
+
+*{
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	border: 0;
+	font-size: 100%;
+}
+
+body{
+	font-size: 1em;
+	font-family: 'Roboto', Sans-Serif;
+	background-color: #DDD;
+}
+
+::selection{
+	color: #FFF;
+	background: #FF4081;
+}
+
+::-moz-selection{
+	color: #FFF;
+	background: #FF4081;
+}

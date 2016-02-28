@@ -1,0 +1,144 @@
+@import url('main.css');
+
+div.center{
+	height: 350px;
+	width: 400px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background-color: #FFF;
+	border-radius: 4px;
+	box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+div.center.register{
+	height: 500px;
+}
+
+div.center.small{
+	height: 250px;
+}
+
+div.center header{
+	border-radius: 4px 4px 0 0;
+	background-color: #3F51B5;
+}
+
+div.center header h1{
+	color: rgba(255, 255, 255, 0.87);
+	padding: 16px;
+	font-size: 1.5em;
+	font-weight: 400;
+}
+
+div.center h1::after{
+	content: url('../img/ic_account_white.svg');
+	position: absolute;
+	right: 16px;
+}
+
+div.center input{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	transition: border-bottom 200ms;
+	-moz-transition: border-bottom 200ms;
+	box-shadow: 0 0 0px 128px white inset;
+	width: 90%;
+	display: block;
+	margin: 25px auto;
+	font-size: 1.2em;
+	color: rgba(0, 0, 0, 0.87);
+	padding: 5px 0;
+	background-color: transparent;
+}
+
+div.center input:focus{
+	border-bottom: 1px solid #FF4081;
+}
+
+div.center input:focus::-webkit-input-placeholder{color:#FF80AB;}
+div.center input:focus:-moz-placeholder{color:#FF80AB;}
+div.center input:focus::-moz-placeholder{color:#FF80AB;}
+div.center input:focus:-ms-input-placeholder{color:#FF80AB;}
+
+div.center input[type="submit"]{
+	display: inline-block;
+	background-color: #FF4081;
+	width: auto;
+	padding: 5px 10px;
+	border-radius: 3px;
+	position: absolute;
+	bottom: 42px;
+	right: 24px;
+	text-transform: uppercase;
+	color: #FFF;
+	box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+	font-size: 1.09em;
+	cursor: pointer;
+	font-weight: 500;
+	letter-spacing: -0.005em;
+	transition: box-shadow 200ms;
+	-moz-transition: box-shadow 200ms;
+}
+
+div.center input[type="submit"]:active{
+	box-shadow: 1px 1px 7px 2px rgba(0, 0, 0, 0.2);
+}
+
+div.center input[type="checkbox"]{
+	display: none;
+}
+
+div.center input[type="checkbox"] + label{
+	background: url('../img/ic_checkbox_accent.svg') no-repeat 16px center;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+	padding-left: 42px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	transition: background-image 100ms;
+	=moz-transition: background-image 100ms;
+}
+
+div.center input[type="checkbox"]:checked + label{
+	background: url('../img/ic_checkbox_checked_accent.svg') no-repeat 16px center;
+	transition: background-image 100ms;
+	=moz-transition: background-image 100ms;
+}
+
+div.center footer{
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+	width: 100%;
+	position: absolute;
+	padding: 16px 0;
+	bottom: 0;
+}
+
+div.center footer a{
+	text-decoration: none;
+	padding: 0 16px;
+	color: rgba(0, 0, 0, 0.38);
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	font-size: 0.9em;
+}
+
+div.center footer a.right{
+	float: right;
+}
+
+div.error{
+	background-color: #2E2E2E;
+	color: #FFF;
+	position: relative;
+	padding: 20px 40px;
+}
+
+div.error::after{
+	content: url('../img/ic_error_white.svg');
+	float: right;
+}
