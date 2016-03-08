@@ -26,7 +26,6 @@ class CreatePaintingsTable extends Migration
             $table->integer('width');
             $table->integer('height');
 
-
             $table->integer('year');
             $table->timestamps();
         });

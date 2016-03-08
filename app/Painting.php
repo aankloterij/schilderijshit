@@ -2,8 +2,11 @@
 
 namespace App;
 
-class Painting extends Eloquent
+use Illuminate\Database\Eloquent\Model;
+
+class Painting extends Model
 {
+    protected $table = 'paintings';
     /**
      * The attributes that are mass assignable.
      *
@@ -14,7 +17,7 @@ class Painting extends Eloquent
         'description',
         'width',
         'height',
-        'painted_at',
+        'year',
         'retail',
         'catagories',
         'artist',

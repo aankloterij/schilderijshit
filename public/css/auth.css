@@ -18,6 +18,10 @@ div.center.register{
 	height: 500px;
 }
 
+div.center.big{
+	height: 650px;
+}
+
 div.center.small{
 	height: 250px;
 }
@@ -36,6 +40,12 @@ div.center header h1{
 
 div.center h1::after{
 	content: url('../img/ic_account_white.svg');
+	position: absolute;
+	right: 16px;
+}
+
+div.center.big h1::after{
+	content: url('../img/ic_brush_white.svg');
 	position: absolute;
 	right: 16px;
 }

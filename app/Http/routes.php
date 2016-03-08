@@ -1,31 +1,45 @@
 <?php
 
+// Show the main page
 Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => 'web'], function() {
 
-    Route::get('/dashboard', 'DashboardController@index');
+	// Show the dashboard
+	Route::get('/dashboard', 'DashboardController@index');
 
-    Route::get('/painting/new', 'PaintingController@showCreateForm');
-    Route::post('/painting/new', 'PaintingController@create');
+	// Create a new painting
+	Route::get('/painting/new', 'PaintingController@showCreateForm');
+	Route::post('/painting/new', 'PaintingController@create');
 
-    Route::get('login', 'Auth\AuthController@showLoginForm');
-    Route::post('login', 'Auth\AuthController@login');
-    Route::get('logout', 'Auth\AuthController@logout');
+	Route::get('/painting/{id}', 'PaintingController@get');
 
-    // Registration Routes...
-    Route::get('register', [
-    	'uses' => 'Auth\AuthController@showRegistrationForm',
-    	'middleware' => 'auth'
-    ]);
+	// Search paintings
+	Route::get('/painting/search', 'PaintingController@showSearchForm');
+	Route::post('/painting/search', 'PaintingController@search');
 
-    Route::post('register', [
-    	'uses' => 'Auth\AuthController@register',
-    	'middleware' => 'auth'
-    ]);
+	/*
+	|--------------------------------------------------------------------------
+	| Authentication
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('login', 'Auth\AuthController@showLoginForm');
+	Route::post('login', 'Auth\AuthController@login');
+	Route::get('logout', 'Auth\AuthController@logout');
 
-    // Password Reset Routes...
-    Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-    Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-    Route::post('password/reset', 'Auth\PasswordController@reset');
+	// Registration
+	Route::get('register', [
+		'uses' => 'Auth\AuthController@showRegistrationForm',
+		'middleware' => 'auth'
+	]);
+
+	Route::post('register', [
+		'uses' => 'Auth\AuthController@register',
+		'middleware' => 'auth'
+	]);
+
+	// Password reset
+	Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+	Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+	Route::post('password/reset', 'Auth\PasswordController@reset');
 });

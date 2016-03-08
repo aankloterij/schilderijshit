@@ -13,13 +13,15 @@
 		<h1>Dashboard</h1>
 		<div class="icon" id="options"></div>
 		<div class="icon" id="profile"></div>
-		<input type="text" name="title" id="searchbar" class="hidden" placeholder="Search">
+		<form action="{{ url('/painting/search') }}" method="POST">
+			<input type="text" name="q" id="searchbar" class="hidden" placeholder="Search">
+		</form>
 		<div class="icon" id="search"></div>
 	</header>
 
 	<aside class="main hidden">
 		<header>
-			<img src="img/avatar.png">
+			<img src="{{ url('img/avatar.png') }}">
 			<h2>{{ Auth::user()->name }}</h2>
 		</header>
 		<ul>
@@ -29,13 +31,8 @@
 				</a>
 			</li>
 			<li>
-				<a class="search" href="#">
+				<a class="search" href="{{ url('/painting/search') }}">
 					Search
-				</a>
-			</li>
-			<li>
-				<a class="profile" href="#">
-					Profile
 				</a>
 			</li>
 			<li class="div"></li>
