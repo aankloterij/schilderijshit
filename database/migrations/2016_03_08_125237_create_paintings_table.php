@@ -14,14 +14,20 @@ class CreatePaintingsTable extends Migration
     {
         Schema::create('paintings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('naam');
+
+            $table->string('naam', 512);
+            $table->string('artist', 512);
+            $table->text('description');
+
+            $table->string('catagories', 512);
+            $table->string('image_location', 512);
+            $table->integer('retail');
+
             $table->integer('width');
             $table->integer('height');
-            $table->timestamp('painted_at');
-            $table->integer('retail');
-            $table->string('catagories');
-            $table->string('artist');
-            $table->string('image_location');
+
+
+            $table->integer('year');
             $table->timestamps();
         });
     }

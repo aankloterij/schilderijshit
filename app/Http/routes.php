@@ -6,6 +6,9 @@ Route::group(['middleware' => 'web'], function() {
 
     Route::get('/dashboard', 'DashboardController@index');
 
+    Route::get('/painting/new', 'PaintingController@showCreateForm');
+    Route::post('/painting/new', 'PaintingController@create');
+
     Route::get('login', 'Auth\AuthController@showLoginForm');
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');

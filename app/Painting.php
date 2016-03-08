@@ -10,6 +10,16 @@ class Painting extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'naam', 'width', 'height', 'painted_at', 'retail', 'catagories', 'artist', 'image_location'
+        'naam',
+        'description',
+        'width',
+        'height',
+        'painted_at',
+        'retail',
+        'catagories',
+        'artist',
+        'image_location'
     ];
+
+
 }
