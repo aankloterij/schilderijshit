@@ -14,13 +14,13 @@ class Painting extends Model
      */
     protected $fillable = [
         'naam',
+        'artist',
         'description',
         'width',
         'height',
         'year',
         'retail',
         'catagories',
-        'artist',
         'image_location'
     ];
 

@@ -15,12 +15,12 @@ class CreatePaintingsTable extends Migration
         Schema::create('paintings', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('naam', 512);
-            $table->string('artist', 512);
+            $table->string('naam', 256);
+            $table->string('artist', 256);
             $table->text('description');
 
-            $table->string('catagories', 512);
-            $table->string('image_location', 512);
+            $table->string('catagories', 256);
+            $table->string('image_location', 256);
             $table->integer('retail');
 
             $table->integer('width');

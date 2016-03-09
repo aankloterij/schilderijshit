@@ -30,15 +30,16 @@ header.main div#options{
 	background: url('../img/ic_more_white.svg') no-repeat center center;
 }
 
-header.main div#profile{
-	background: url('../img/ic_account_white.svg') no-repeat center center;
+header.main a#logout{
+	background: url('../img/ic_logout_white.svg') no-repeat center center;
 }
 
 header.main div#search{
 	background: url('../img/ic_search_white.svg') no-repeat center center;
 }
 
-header.main div.icon{
+header.main div.icon,
+header.main a.icon{
 	top: 0;
 	height: 64px;
 	width: 64px;
@@ -149,6 +150,11 @@ aside.main ul li a.logout::before{
 	content: url('../img/ic_logout_black.svg');
 }
 
+aside.main ul li a.catalog::before{
+	content: url('../img/ic_module_black.svg');
+	left: 5px;
+}
+
 div#content{
 	top: 64px;
 	position: absolute;
@@ -189,4 +195,28 @@ a#floating{
 	background-size: 32px;
 	background-color: #FF4081;
 	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"]{
+	display: inline-block;
+	background-color: #FF4081;
+	width: auto;
+	padding: 5px 10px;
+	border-radius: 3px;
+	position: absolute;
+	bottom: 42px;
+	right: 24px;
+	text-transform: uppercase;
+	color: #FFF;
+	box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+	font-size: 1.09em;
+	cursor: pointer;
+	font-weight: 500;
+	letter-spacing: -0.005em;
+	transition: box-shadow 200ms;
+	-moz-transition: box-shadow 200ms;
+}
+
+input[type="submit"]:active{
+	box-shadow: 1px 1px 7px 2px rgba(0, 0, 0, 0.2);
 }

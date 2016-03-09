@@ -12,11 +12,18 @@ Route::group(['middleware' => 'web'], function() {
 	Route::get('/painting/new', 'PaintingController@showCreateForm');
 	Route::post('/painting/new', 'PaintingController@create');
 
+	// Search paintings
+	Route::get('/painting/search', 'PaintingController@search');
+
+	Route::get('/api/painting/search', 'API\PaintingController@search');
+
+	Route::get('/painting/search/quick', 'PaintingController@quickSearch');
+
+	// Browse all paintings
+	Route::get('/painting/catalog', 'PaintingController@showCatalog');
+
 	Route::get('/painting/{id}', 'PaintingController@get');
 
-	// Search paintings
-	Route::get('/painting/search', 'PaintingController@showSearchForm');
-	Route::post('/painting/search', 'PaintingController@search');
 
 	/*
 	|--------------------------------------------------------------------------
@@ -30,12 +37,12 @@ Route::group(['middleware' => 'web'], function() {
 	// Registration
 	Route::get('register', [
 		'uses' => 'Auth\AuthController@showRegistrationForm',
-		'middleware' => 'auth'
+		// 'middleware' => 'auth'
 	]);
 
 	Route::post('register', [
 		'uses' => 'Auth\AuthController@register',
-		'middleware' => 'auth'
+		// 'middleware' => 'auth'
 	]);
 
 	// Password reset

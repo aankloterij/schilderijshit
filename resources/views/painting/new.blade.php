@@ -2,6 +2,24 @@
 
 @section('head')
 	<link rel="stylesheet" href="{{ url('/css/auth.css') }}">
+	<style>
+		div.half-wrap{
+			margin: 25px auto;
+			display: block;
+			width: 90%;
+		}
+
+		div.center input.half{
+			width: 45%;
+			margin: 0;
+			display: inline-block;
+		}
+
+		div.center input.half:nth-child(even){
+			float: right;
+		}
+
+	</style>
 	<title>Dashboard</title>
 @endsection
 
@@ -24,9 +42,11 @@
 
 			<input type="text" name="image_location" placeholder="URL">
 
-			<input type="number" name="width" placeholder="Breedte">
+			<div class="half-wrap">
+				<input type="number" class="half" name="width" placeholder="Breedte">
 
-			<input type="number" name="height" placeholder="Hoogte">
+				<input type="number" class="half" name="height" placeholder="Hoogte">
+			</div>
 
 			<input type="number" name="year" placeholder="Jaar">
 

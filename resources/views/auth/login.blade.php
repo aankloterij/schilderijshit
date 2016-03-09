@@ -6,9 +6,9 @@
 
 @section('error')
 
-  @if($errors->has('email'))
+  @if($errors->has('username'))
     <div class="error">
-      {{ $errors->first('email') }}
+      {{ $errors->first('username') }}
     </div>
   @endif
 
@@ -26,10 +26,10 @@
 			<h1>Welcome back!</h1>
 		</header>
 
-		<form action="" method="POST">
+		<form action="{{ url('/login') }}" method="POST">
       {!! csrf_field() !!}
 
-			<input type="email" name="email" value="{{ old('email') }}" placeholder="Email">
+			<input type="text" name="username" value="{{ old('username') }}" placeholder="Username">
 
 			<input type="password" name="password" placeholder="Password">
 

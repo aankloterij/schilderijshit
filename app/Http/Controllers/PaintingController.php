@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Painting;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -21,11 +22,11 @@ class PaintingController extends Controller
 	public function create(Request $request){
 		$this->validate($request, [
 
-			'naam' => 'required|max:512',
-			'artist' => 'max:512',
+			'naam' => 'required|max:256',
+			'artist' => 'max:256',
 			'description' => 'max:4096',
 
-			'image_location' => 'required|max:512',
+			'image_location' => 'required|max:256',
 
 			'width' => 'required',
 			'height' => 'required',
@@ -49,39 +50,48 @@ class PaintingController extends Controller
 	}
 
 	public function showCreateForm(){
-		return view('newpainting');
+		return view('painting.new');
 	}
 
 	public function get($id){
 
 		if(!is_numeric($id))
-			return response()->json([
-				"error" => [
-					"status" => 400,
-					"message" => "The id must be numeric"
-				]
+			return view('errors.blank', [
+				'status' => 400,
+				'message' => 'The <code>ID</code> must be numeric'
 			]);
 
 		$painting = Painting::find($id);
 
-		if(request()->wantsJson()){
+		if($painting == null)
+			return view('errors.blank', [
+				'status' => 404,
+				'message' => "A painting with the id <code>{$id}</code> does not exist"
+			]);
 
-			// The painting was not found
-			if($painting == null)
-				return response()->json([
-					"error" => [
-						"status" => 404,
-						"message" => "This painting was not found"
-					]
-				]);
-
-			return response()->json($painting);
-		}else
-			return view('painting.view', ['painting' => $painting]);
-
+		return view('painting.view', ['painting' => $painting]);
 	}
 
-	public function search($id){
+	public function search(Request $request){
+		return view('painting.search', [
+			'ref' => ($request->input('ref') == 'true'),
+			'default' => $request->input('default')
+		]);
+	}
 
+	public function quickSearch(Request $request){
+
+		$this->validate($request, [
+			'naam' => 'required|max:256'
+		]);
+
+		$naam = $request->input('naam');
+
+		$paintings = Painting::where('naam', 'like', '%' . $naam . '%')->get();
+
+		if($naam == null)
+			return redirect('/dashboard');
+
+		return view('painting.quicksearch', ['paintings' => $paintings]);
 	}
 }

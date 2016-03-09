@@ -30,6 +30,8 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/dashboard';
 
+    protected $username = 'username';
+
     /**
      * Create a new authentication controller instance.
      *

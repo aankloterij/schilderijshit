@@ -1,0 +1,21 @@
+
+form#searchform{
+	display: block;
+	margin: 10px;
+	background-color: #fff;
+	border-radius: 2px;
+	position: relative;
+	padding: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+form#searchform input{
+	display: inline-block;
+	position: relative;
+	bottom: auto;
+	left: auto;
+	max-width: 190px;
+	margin: 0 6px;
+	right: auto;
+	top: auto;
+}

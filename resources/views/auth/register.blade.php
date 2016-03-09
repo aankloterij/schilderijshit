@@ -44,12 +44,12 @@
 			<h1>Welcome!</h1>
 		</header>
 
-		<form action="" method="POST">
+		<form action="{{ url('/register') }}" method="POST">
       {!! csrf_field() !!}
 
-			<input type="text" value="{{ old('username') }}" name="username" placeholder="Username">
-
 			<input type="text" value="{{ old('name') }}" name="name" placeholder="Name">
+
+      <input type="text" value="{{ old('username') }}" name="username" placeholder="Username">
 
 			<input type="email" value="{{ old('email') }}" name="email" placeholder="Email">
 

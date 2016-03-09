@@ -1,5 +1,9 @@
 @import url('main.css');
 
+/*
+ * Module 7 H 4 + 5
+ */
+
 div.center{
 	height: 350px;
 	width: 400px;
@@ -19,7 +23,7 @@ div.center.register{
 }
 
 div.center.big{
-	height: 650px;
+	height: 600px;
 }
 
 div.center.small{
