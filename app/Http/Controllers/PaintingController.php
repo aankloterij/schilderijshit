@@ -72,6 +72,9 @@ class PaintingController extends Controller
 		return view('painting.view', ['painting' => $painting]);
 	}
 
+	/**
+	 * Show the search page
+	 */
 	public function search(Request $request){
 		return view('painting.search');
 	}
@@ -90,5 +93,27 @@ class PaintingController extends Controller
 			return redirect('/dashboard');
 
 		return view('painting.quicksearch', ['paintings' => $paintings]);
+	}
+
+	public function showCatalog(){
+		$paintings = Painting::simplePaginate(10);
+
+		return view('painting.catalog', ['paintings' => $paintings]);
+	}
+
+	public function delete($id){
+
+		Validator::make(
+			[
+				'id' => $id
+			],
+			[
+				'id' => 'numeric|required'
+			]
+		);
+
+		Painting::destroy($id);
+
+		return redirect('/dashboard');
 	}
 }

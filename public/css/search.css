@@ -1,44 +1,61 @@
+div#results{
+	vertical-align: top;
+}
 
 .card{
-	display: block;
 	background-color: #fff;
 	border-radius: 2px;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-	position: relative;
+	color: rgba(0, 0, 0, 0.87);
 	margin: 10px;
-	padding: 20px;
+	padding: 10px;
 }
-
 
 a.card.result{
+	padding: 0;
+	position: relative;
 	display: inline-block;
-	padding: 10px;
 	text-decoration: none;
-	color: rgba(0, 0, 0, 0.87);
+	min-height: 600px;
+	vertical-align: top;
+	position: relative;
 }
 
-a.card.result h1{
+a.card.result div{
+	padding: 10px;
+	position: relative;
+	min-height: 400px;
+	max-width: 300px;
+	display: block;
+}
+
+a.card.result div h1{
 	font-size: 1.4em;
+	margin-bottom: 5px;
 }
 
-a.card.result h2{
+a.card.result div h2{
 	font-size: 1.1em;
 }
 
-a.card.result img{
-	width: 200px;
+a.card.result div img{
+	display: block;
+	width: 100%;
+	margin: 10px 0;
 }
 
-a.card.result p{
+a.card.result div p{
+	font-size: 0.9em;
 	color: rgba(0, 0, 0, 0.56);
 }
 
-a.card.result span{
+a.card.result div span{
+	margin-top: 20px;
 	color: rgba(0, 0, 0, 0.56);
 	display: block;
 }
 
-a.card.result small{
+a.card.result div small{
 	color: rgba(0, 0, 0, 0.56);
 	display: block;
 }
@@ -77,6 +94,57 @@ div#paginate span.ruimte{
 	display: inline-block;
 }
 
-div#results:empty + div#paginate{
-	display: none;
+div.card.big{
+	position: relative;
+	padding: 0;
+	min-height: 500px;
+	padding-bottom: 20px;
+}
+
+div.card.big a{
+	display: block;
+	max-height: 700px;
+	overflow: hidden;
+	position: relative;
+}
+
+div.card.big a h1{
+	position: absolute;
+	display: block;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 30px 0 50px 40px;
+	font-size: 1.6em;
+	font-weight: 500;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: rgba(255, 255, 255, 0.87);
+}
+
+div.card.big a h2{
+	color: rgba(255, 255, 255, 0.56);
+	font-weight: 500;
+	font-size: 1.2em;
+	position: absolute;
+	display: block;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 30px 40px;
+
+}
+
+div.card.big a img{
+	width: 100%;
+}
+
+div.card.big p{
+	padding: 20px;
+}
+
+div.card.big span,
+div.card.big small{
+	padding: 3px 20px;
+	display: block;
+	color: rgba(0, 0, 0, 0.56);
 }

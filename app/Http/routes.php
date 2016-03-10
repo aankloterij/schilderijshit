@@ -24,6 +24,8 @@ Route::group(['middleware' => 'web'], function() {
 
 	Route::get('/painting/{id}', 'PaintingController@get');
 
+	Route::get('/painting/{id}/delete', 'PaintingController@delete');
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -37,12 +39,12 @@ Route::group(['middleware' => 'web'], function() {
 	// Registration
 	Route::get('register', [
 		'uses' => 'Auth\AuthController@showRegistrationForm',
-		// 'middleware' => 'auth'
+		'middleware' => 'auth'
 	]);
 
 	Route::post('register', [
 		'uses' => 'Auth\AuthController@register',
-		// 'middleware' => 'auth'
+		'middleware' => 'auth'
 	]);
 
 	// Password reset

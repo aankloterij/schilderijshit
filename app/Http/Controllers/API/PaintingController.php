@@ -38,22 +38,21 @@ class PaintingController extends Controller
 			'year' => 'numeric'
 		]);
 
-
 		$query = Painting::query();
 
-		if(! empty($data['naam']))
+		if(!empty($data['naam']))
 			$query->where('naam', 'like', '%' . $data['naam'] . '%');
 
-		if(! empty($data['artist']))
+		if(!empty($data['artist']))
 			$query->where('artist', 'like', '%' . $data['artist'] . '%');
 
-		if(! empty($data['description']))
+		if(!empty($data['description']))
 			$query->where('description', 'like', '%' . $data['description'] . '%');
 
-		if(! empty($data['retail']))
+		if(!empty($data['retail']))
 			$query->where('retail', '=', $data['retail']);
 
-		if(! empty($data['year']))
+		if(!empty($data['year']))
 			$query->where('year', '=', $data['year']);
 
 		return response()->json($query->paginate(1));
