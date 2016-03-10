@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use Validator;
+use App\Http\Controllers\Controller;
 use App\Painting;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class PaintingController extends Controller
 			'year'
 		]);
 
-		Validator::make($data, [
+		$this->validate($request, [
 			'naam' => 'max:256',
 			'artist' => 'max:256',
 			'description' => 'max:4096',
@@ -40,22 +41,22 @@ class PaintingController extends Controller
 
 		$query = Painting::query();
 
-		if(isset($data['naam']))
+		if(! empty($data['naam']))
 			$query->where('naam', 'like', '%' . $data['naam'] . '%');
 
-		if(isset($data['artist']))
+		if(! empty($data['artist']))
 			$query->where('artist', 'like', '%' . $data['artist'] . '%');
 
-		if(isset($data['description']))
+		if(! empty($data['description']))
 			$query->where('description', 'like', '%' . $data['description'] . '%');
 
-		if(isset($data['retail']))
+		if(! empty($data['retail']))
 			$query->where('retail', '=', $data['retail']);
 
-		if(isset($data['year']))
+		if(! empty($data['year']))
 			$query->where('year', '=', $data['year']);
 
-		return response()->json($query->paginate(20));
+		return response()->json($query->paginate(1));
 	}
 
 	public function get($id){

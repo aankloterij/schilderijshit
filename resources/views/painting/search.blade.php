@@ -7,8 +7,7 @@
 @endsection
 
 @section('content')
-	@if(!$ref)
-		<form action="" id="searchform">
+		<form action="" class="card" id="searchform">
 			<input type="text" name="naam" placeholder="Naam">
 			<input type="text" name="artist" placeholder="Schilder">
 			<input type="text" name="description" placeholder="Beschrijving">
@@ -16,6 +15,12 @@
 			<input type="number" name="year" placeholder="Jaar">
 			<input type="submit" value="Zoek">
 		</form>
-	@endif
+		<div id="results">
+		</div>
+		<div class="card" id="paginate">
+			<a href="#" id="previous">&laquo; Previous</a>
+			<span class="ruimte"></span>
+			<a href="#" id="next">Next &raquo;</a>
+		</div>
 @endsection
 

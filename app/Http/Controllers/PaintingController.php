@@ -73,10 +73,7 @@ class PaintingController extends Controller
 	}
 
 	public function search(Request $request){
-		return view('painting.search', [
-			'ref' => ($request->input('ref') == 'true'),
-			'default' => $request->input('default')
-		]);
+		return view('painting.search');
 	}
 
 	public function quickSearch(Request $request){

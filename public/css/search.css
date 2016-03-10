@@ -1,12 +1,49 @@
 
-form#searchform{
+.card{
 	display: block;
-	margin: 10px;
 	background-color: #fff;
 	border-radius: 2px;
-	position: relative;
-	padding: 20px;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+	position: relative;
+	margin: 10px;
+	padding: 20px;
+}
+
+
+a.card.result{
+	display: inline-block;
+	padding: 10px;
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+a.card.result h1{
+	font-size: 1.4em;
+}
+
+a.card.result h2{
+	font-size: 1.1em;
+}
+
+a.card.result img{
+	width: 200px;
+}
+
+a.card.result p{
+	color: rgba(0, 0, 0, 0.56);
+}
+
+a.card.result span{
+	color: rgba(0, 0, 0, 0.56);
+	display: block;
+}
+
+a.card.result small{
+	color: rgba(0, 0, 0, 0.56);
+	display: block;
+}
+
+form#searchform{
 }
 
 form#searchform input{
@@ -18,4 +55,28 @@ form#searchform input{
 	margin: 0 6px;
 	right: auto;
 	top: auto;
+}
+
+div#paginate{
+	padding: 10px 20px;
+	text-align: center;
+}
+
+div#paginate a{
+	color: rgba(0, 0, 0, 0.56);
+	text-decoration: none;
+}
+
+div#paginate a:hover{
+	color: #FF4081;
+	border-bottom: 1px dotted #FF4081;
+}
+
+div#paginate span.ruimte{
+	width: 10px;
+	display: inline-block;
+}
+
+div#results:empty + div#paginate{
+	display: none;
 }
