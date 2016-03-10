@@ -183,7 +183,7 @@ input:focus::-moz-placeholder{color:#FF80AB;}
 input:focus:-ms-input-placeholder{color:#FF80AB;}
 
 a#floating{
-	position: absolute;
+	position: fixed;
 	display: block;
 	height: 64px;
 	width: 64px;

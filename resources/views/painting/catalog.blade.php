@@ -24,5 +24,6 @@
 		<div class="card" id="paginate">
 			{!! $paintings->render() !!}
 		</div>
+	  <a href="{{ url('/painting/new') }}" id="floating"></a>
 @endsection
 
