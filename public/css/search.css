@@ -1,5 +1,94 @@
 div#results{
 	vertical-align: top;
+	-webkit-column-count: 4;
+	-webkit-column-gap: 10px;
+	-webkit-column-fill: auto;
+	-moz-column-count: 4;
+	-moz-column-gap: 10px;
+	-moz-column-fill: auto;
+	column-count: 4;
+	column-gap: 10px;
+	column-fill: auto;
+
+	width: 1335px; /* 4 * 320 + 55 (gwn random getal) */
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 375px) {
+	div#results {
+		vertical-align: top;
+		-webkit-column-count: 1;
+		-webkit-column-gap: 10px;
+		-webkit-column-fill: auto;
+		-moz-column-count: 1;
+		-moz-column-gap: 10px;
+		-moz-column-fill: auto;
+		column-count: 1;
+		column-gap: 10px;
+		column-fill: auto;
+
+		width: 375px; /* 1 * 320 + 55 (gwn random getal) */
+		margin: 0 auto;
+	}
+}
+
+@media screen and (min-width: 695px) {
+	div#results {
+		vertical-align: top;
+		-webkit-column-count: 2;
+		-webkit-column-gap: 10px;
+		-webkit-column-fill: auto;
+		-moz-column-count: 2;
+		-moz-column-gap: 10px;
+		-moz-column-fill: auto;
+		column-count: 2;
+		column-gap: 10px;
+		column-fill: auto;
+
+		width: 695px; /* 2 * 320 + 55 (gwn random getal) */
+		margin: 0 auto;
+	}
+}
+
+@media screen and (min-width: 1005px) {
+	div#results {
+		vertical-align: top;
+		-webkit-column-count: 3;
+		-webkit-column-gap: 10px;
+		-webkit-column-fill: auto;
+		-moz-column-count: 3;
+		-moz-column-gap: 10px;
+		-moz-column-fill: auto;
+		column-count: 3;
+		column-gap: 10px;
+		column-fill: auto;
+
+		width: 1005px; /* 3 * 320 + 55 (gwn random getal) */
+		margin: 0 auto;
+	}
+}
+
+@media screen and (min-width: 1335px) {
+	div#results {
+		vertical-align: top;
+		-webkit-column-count: 4;
+		-webkit-column-gap: 10px;
+		-webkit-column-fill: auto;
+		-moz-column-count: 4;
+		-moz-column-gap: 10px;
+		-moz-column-fill: auto;
+		column-count: 4;
+		column-gap: 10px;
+		column-fill: auto;
+
+		width: 1335px; /* 4 * 320 + 55 (gwn random getal) */
+		margin: 0 auto;
+	}
+}
+
+#template_result
+{
+	display: none;
 }
 
 .card{
@@ -11,59 +100,47 @@ div#results{
 	padding: 10px;
 }
 
-a.card.result{
-	padding: 0;
-	position: relative;
-	display: inline-block;
-	text-decoration: none;
-	min-height: 600px;
-	vertical-align: top;
-	position: relative;
-}
-
-a.card.result div{
+.result{
 	padding: 10px;
-	position: relative;
-	min-height: 400px;
-	max-width: 300px;
-	display: block;
+	width: 300px;
+	display: inline-block;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
 }
 
-a.card.result div h1{
+.result h1{
 	font-size: 1.4em;
 	margin-bottom: 5px;
 }
 
-a.card.result div h2{
+.result h2{
 	font-size: 1.1em;
 }
 
-a.card.result div img{
+.result img{
 	display: block;
 	width: 100%;
 	margin: 10px 0;
 }
 
-a.card.result div p{
+.result p{
 	font-size: 0.9em;
 	color: rgba(0, 0, 0, 0.56);
 }
 
-a.card.result div span{
+.result span{
 	margin-top: 20px;
 	color: rgba(0, 0, 0, 0.56);
 	display: block;
 }
 
-a.card.result div small{
+.result small{
 	color: rgba(0, 0, 0, 0.56);
 	display: block;
 }
 
-form#searchform{
-}
-
-form#searchform input{
+form input{
 	display: inline-block;
 	position: relative;
 	bottom: auto;

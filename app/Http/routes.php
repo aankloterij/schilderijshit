@@ -1,54 +1,32 @@
 <?php
 
-// Show the main page
-Route::get('/', 'HomeController@index');
+Route::get('/', ['as' => 'home', 'uses' => function ()
+{
+	return view('home');
+}]);
 
-Route::group(['middleware' => 'web'], function() {
+Route::get('/makehash', function ()
+{
+	return Hash::make(Request::get('hash'));
+});
 
-	// Show the dashboard
-	Route::get('/dashboard', 'DashboardController@index');
+Route::group(['prefix' => 'paintings', 'middleware' => ['web', 'auth']], function ()
+{
+	Route::get('', ['uses' => 'PaintingsController@showSearch', 'as' => 'search']);
+	Route::get('search', ['uses' => 'PaintingsController@doSearch', 'as' => 'handleSearch']);
 
-	// Create a new painting
-	Route::get('/painting/new', 'PaintingController@showCreateForm');
-	Route::post('/painting/new', 'PaintingController@create');
+	Route::get('{painting}', ['uses' => 'PaintingsController@showSinglePainting', 'as' => 'singlePainting']);
+});
 
-	// Search paintings
-	Route::get('/painting/search', 'PaintingController@search');
+Route::group(['middleware' => 'web', 'namespace' => 'Auth'], function ()
+{
+	Route::get('login', ['uses' => 'AuthController@showLogin', 'as' => 'login']);
+	Route::post('login', ['uses' => 'AuthController@doLogin', 'as' => 'handleLogin']);
+	Route::get('logout', ['uses' => 'AuthController@doLogout', 'as' => 'logout']);
 
-	Route::get('/api/painting/search', 'API\PaintingController@search');
-
-	Route::get('/painting/search/quick', 'PaintingController@quickSearch');
-
-	// Browse all paintings
-	Route::get('/painting/catalog', 'PaintingController@showCatalog');
-
-	Route::get('/painting/{id}', 'PaintingController@get');
-
-	Route::get('/painting/{id}/delete', 'PaintingController@delete');
-
-
-	/*
-	|--------------------------------------------------------------------------
-	| Authentication
-	|--------------------------------------------------------------------------
-	*/
-	Route::get('login', 'Auth\AuthController@showLoginForm');
-	Route::post('login', 'Auth\AuthController@login');
-	Route::get('logout', 'Auth\AuthController@logout');
-
-	// Registration
-	Route::get('register', [
-		'uses' => 'Auth\AuthController@showRegistrationForm',
-		'middleware' => 'auth'
-	]);
-
-	Route::post('register', [
-		'uses' => 'Auth\AuthController@register',
-		'middleware' => 'auth'
-	]);
-
-	// Password reset
-	Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-	Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-	Route::post('password/reset', 'Auth\PasswordController@reset');
+	Route::group(['middleware' => 'auth'], function ()
+	{
+		Route::get('register', ['uses' => 'AuthController@showRegister', 'as' => 'register']);
+		Route::post('register', ['uses' => 'AuthController@doRegister', 'as' => 'handleRegister']);
+	});
 });

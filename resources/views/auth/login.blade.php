@@ -23,13 +23,13 @@
 @section('form')
   <div class="center">
 		<header>
-			<h1>Welcome back!</h1>
+			<h1>Welcome black!</h1>
 		</header>
 
-		<form action="{{ url('/login') }}" method="POST">
-      {!! csrf_field() !!}
+		<form action="{{ route('handleLogin') }}" method="POST">
+			{!! csrf_field() !!}
 
-			<input type="text" name="username" value="{{ old('username') }}" placeholder="Username">
+			<input type="text" name="id" value="{{ old('id') }}" placeholder="Username or Email">
 
 			<input type="password" name="password" placeholder="Password">
 
@@ -40,8 +40,7 @@
 		</form>
 
 		<footer>
-			<a href="{{ url('/register') }}">Register</a>
-			<a href="{{ url('/password/reset') }}" class="right">Forgot password</a>
+			<a href="{{ route('register') }}">Register</a>
 		</footer>
 	</div>
 @endsection

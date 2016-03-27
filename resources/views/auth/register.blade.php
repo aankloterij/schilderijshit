@@ -44,7 +44,7 @@
 			<h1>Welcome!</h1>
 		</header>
 
-		<form action="{{ url('/register') }}" method="POST">
+		<form action="{{ route('handleRegister') }}" method="POST">
       {!! csrf_field() !!}
 
 			<input type="text" value="{{ old('name') }}" name="name" placeholder="Name">
@@ -60,8 +60,7 @@
 		</form>
 
 		<footer>
-			<a href="{{ url('/login') }}">Log in</a>
-			<a href="{{ url('/password/reset') }}" class="right">Reset password</a>
+			<a href="{{ route('login') }}">Log in</a>
 		</footer>
 	</div>
 @endsection

@@ -24,5 +24,13 @@ class Painting extends Model
         'image_location'
     ];
 
+    protected $appends = ['url'];
+
+    protected $hidden = ['id', 'created_at', 'updated_at'];
+
+    public function getUrlAttribute()
+    {
+        return url()->route('singlePainting', $this->id);
+    }
 
 }

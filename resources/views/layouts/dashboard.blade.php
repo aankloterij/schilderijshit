@@ -13,7 +13,7 @@
 		<div class="icon" id="menu_main"></div>
 		<h1>Dashboard</h1>
 		<div class="icon" id="options"></div>
-		<a class="icon" href="{{ url('/logout') }}" id="logout"></a>
+		<a class="icon" href="{{ route('logout') }}" id="logout"></a>
 		<form action="{{ url('/painting/search/quick') }}" method="GET">
 			<input type="hidden" name="ref" value="true">
 			<input type="text" name="naam" id="searchbar" class="hidden" placeholder="Search">
@@ -44,7 +44,7 @@
 			</li>
 			<li class="div"></li>
 			<li>
-				<a class="logout" href="{{ url('/logout') }}">
+				<a class="logout" href="{{ route('logout') }}">
 					Log out
 				</a>
 			</li>

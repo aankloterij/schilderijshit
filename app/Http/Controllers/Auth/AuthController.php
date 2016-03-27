@@ -2,75 +2,67 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
-
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/dashboard';
-
-    protected $username = 'username';
-
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function showLogin()
     {
-        // $this->middleware('guest', ['except' => 'logout']);
+        return view('auth.login');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function doLogin(Request $request)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'username' => 'required|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        $this->validate($request, ['id' => 'required', 'password' => 'required']);
+
+        $user = User::where('username', $request->id)->orWhere('email', $request->id)->first();
+
+        if (\Hash::check($request->password, $user->password)) Auth::login($user);
+
+        else return redirect()
+            ->route('login')
+            ->withInput()
+            ->withErrors(new MessageBag(['username' => 'Those credentials didn\'t match our records.']));
+
+        return "Je moeder";
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
+    public function doLogout()
     {
-        return User::create([
-            'name' => $data['name'],
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        \Auth::logout();
+
+        return redirect()->route('login');
+    }
+
+    public function showRegister()
+    {
+        return view('auth.register');
+    }
+
+    public function doRegister(Request $request)
+    {
+        $rules = [
+            'name' => 'required',
+            'username' => 'required|unique:users|max:255',
+            'email' => 'required|unique:users|max:255',
+            'password' => 'required|min:4|confirmed',
+            'password_confirmation' => 'required|',
+        ];
+
+        $this->validate($request, $rules);
+
+        $data = $request->only(array_except(array_keys($rules), 'password_confirmation'));
+
+        $data['password'] = bcrypt($data['password']);
+
+        $user = User::create($data);
+
+        Auth::login($user);
+
+        return redirect()->route('home');
     }
 }
