@@ -57,9 +57,7 @@ class AuthController extends Controller
 
           */
 
-        $data = $request->only(
-            $request->only(array_except(array_keys($rules), 'password_confirmation'))
-        );
+        $data = $request->only(['name', 'username', 'email', 'password']);
 
         $data['password'] = bcrypt($request->password);
 
