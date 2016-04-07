@@ -37,8 +37,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function doRegister(Request $request)
-    {
+    public function doRegister(Request $request) {
         $rules = [
             'name' => 'required',
             'username' => 'required|unique:users|max:255',
@@ -49,15 +48,24 @@ class AuthController extends Controller
 
         $this->validate($request, $rules);
 
+        /*
         $data = array_set(
             $request->only(array_except(array_keys($rules), 'password_confirmation')),
             'password',
             bcrypt($request->password)
         );
 
+          */
+
+        $data = $request->only(
+            $request->only(array_except(array_keys($rules), 'password_confirmation'))
+        );
+
+        $data['password'] = bcrypt($request->password);
+
         Auth::login(User::create($data));
 
-        return redirect()->route('home');
+        return redirect()->route('search');
     }
 
     public function redirectPath()
