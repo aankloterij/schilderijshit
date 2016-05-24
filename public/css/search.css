@@ -185,6 +185,11 @@ div.card.big a{
 	position: relative;
 }
 
+div.card a {
+	color: rgba(0, 0, 0, 0.87);
+	text-decoration: none;
+}
+
 div.card.big a h1{
 	position: absolute;
 	display: block;

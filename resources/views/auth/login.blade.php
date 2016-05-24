@@ -23,7 +23,7 @@
 @section('form')
   <div class="center">
 		<header>
-			<h1>Welcome black!</h1>
+			<h1>Welcome back!</h1>
 		</header>
 
 		<form action="{{ route('handleLogin') }}" method="POST">

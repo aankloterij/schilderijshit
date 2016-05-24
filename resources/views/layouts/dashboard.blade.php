@@ -28,17 +28,17 @@
 		</header>
 		<ul>
 			<li>
-				<a class="dashboard" href="{{ url('/dashboard') }}">
+				<a class="dashboard" href="{{ url('/paintings') }}">
 					Dashboard
 				</a>
 			</li>
 			<li>
-				<a class="search" href="{{ url('/painting/search') }}">
+				<a class="search" href="{{ url('/paintings') }}">
 					Search
 				</a>
 			</li>
 			<li>
-				<a class="catalog" href="{{ url('/painting/catalog') }}">
+				<a class="catalog" href="{{ url('/paintings') }}">
 					Catalog
 				</a>
 			</li>
