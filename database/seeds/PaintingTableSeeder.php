@@ -14,7 +14,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 53,
 			'height' => 77,
 			'year' => 1503,
-			'catagories' => ''
+			'catagories' => '',
 		],
 
 		[
@@ -26,7 +26,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 92,
 			'height' => 74,
 			'year' => 1889,
-			'catagories' => ''
+			'catagories' => '',
 		],
 
 		[
@@ -38,7 +38,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 74,
 			'height' => 91,
 			'year' => 1893,
-			'catagories' => ''
+			'catagories' => '',
 		],
 
 		[
@@ -50,7 +50,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 880,
 			'height' => 460,
 			'year' => 1494,
-			'catagories' => ''
+			'catagories' => '',
 		],
 
 		[
@@ -62,7 +62,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 244,
 			'height' => 122,
 			'year' => 1948,
-			'catagories' => ''
+			'catagories' => '',
 		],
 
 		[
@@ -74,7 +74,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 2',
 			'artist' => 'Paul Cézanne',
@@ -84,7 +84,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 3',
 			'artist' => 'Paul Cézanne',
@@ -94,7 +94,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 4',
 			'artist' => 'Paul Cézanne',
@@ -104,7 +104,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 5',
 			'artist' => 'Paul Cézanne',
@@ -114,7 +114,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 6',
 			'artist' => 'Paul Cézanne',
@@ -124,7 +124,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 7',
 			'artist' => 'Paul Cézanne',
@@ -133,6 +133,7 @@ class PaintingTableSeeder extends Seeder {
 			'retail' => 250000000,
 			'width' => 48,
 			'height' => 58,
+			'catagories' => '',
 			'year' => 1890,
 		],[
 			'naam' => 'The Card Players 8',
@@ -143,7 +144,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 9',
 			'artist' => 'Paul Cézanne',
@@ -153,7 +154,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 10 ',
 			'artist' => 'Paul Cézanne',
@@ -163,7 +164,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 11',
 			'artist' => 'Paul Cézanne',
@@ -173,7 +174,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 12',
 			'artist' => 'Paul Cézanne',
@@ -183,7 +184,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 13',
 			'artist' => 'Paul Cézanne',
@@ -193,7 +194,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 14',
 			'artist' => 'Paul Cézanne',
@@ -203,7 +204,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		],[
 			'naam' => 'The Card Players 15',
 			'artist' => 'Paul Cézanne',
@@ -213,7 +214,7 @@ class PaintingTableSeeder extends Seeder {
 			'width' => 48,
 			'height' => 58,
 			'year' => 1890,
-			'catagories' => ''
+			'catagories' => '',
 		]
 	];
 
