@@ -11,8 +11,8 @@
 			<input type="text" name="naam" placeholder="Naam">
 			<input type="text" name="artist" placeholder="Schilder">
 			<input type="text" name="description" placeholder="Beschrijving">
-			<input type="number" name="retail" placeholder="Retail">
-			<input type="number" name="year" placeholder="Jaar">
+			<input type="text" name="retail" placeholder="Retail">
+			<input type="text" name="year" placeholder="Jaar">
 			<input type="submit" value="Zoek">
 		</form>
 
