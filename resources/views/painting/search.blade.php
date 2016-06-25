@@ -11,20 +11,18 @@
 			<input type="text" name="naam" placeholder="Naam">
 			<input type="text" name="artist" placeholder="Schilder">
 			<input type="text" name="description" placeholder="Beschrijving">
-			<input type="number" name="retail" placeholder="Retail">
-			<input type="number" name="year" placeholder="Jaar">
+			<input type="text" name="retail" placeholder="Retail">
+			<input type="text" name="year" placeholder="Jaar">
 			<input type="submit" value="Zoek">
 		</form>
 
 		<div id="template_result" class="result card">
-			<div>
-				<a id="result_link" href=""><h1 id="result_name"></h1></a>
-				<img id="result_preview" src="">
-				<h2 id="result_artist"></h2>
-				<p id="result_description"></p>
-				<span id="result_retail"></span>
-				<small id="result_year"></small>
-			</div>
+			<a id="result_link" href=""><h1 id="result_name"></h1></a>
+			<img id="result_preview" src="">
+			<h2 id="result_artist"></h2>
+			<p id="result_description"></p>
+			<span id="result_retail"></span>
+			<small id="result_year"></small>
 		</div>
 
 		<div id="results">
@@ -44,9 +42,9 @@
 		</div>
 
 		<div class="card" id="paginate">
-			<a href="{{ $paintings->previousPageUrl() }}" id="previous">&laquo; Previous</a>
+			<a href="{{ $paintings->previousPageUrl() ?: '#' }}" id="prev">&laquo; Previous</a>
 			<span class="ruimte"></span>
-			<a href="{{ $paintings->nextPageUrl() }}" id="next">Next &raquo;</a>
+			<a href="{{ $paintings->nextPageUrl() ?: '#' }}" id="next">Next &raquo;</a>
 		</div>
 @endsection
 

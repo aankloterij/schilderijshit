@@ -9,9 +9,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class PaintingsController extends Controller
 {
-	public function showSearch()
+	public function showSearch(Request $request)
 	{
-		$paintings = Painting::paginate();
+		$paintings = $this->doSearch($request);
+
+		if ($request->ajax()) return $paintings->toJson();
 
 		return view('painting.search')->withPaintings($paintings);
 	}
@@ -27,7 +29,7 @@ class PaintingsController extends Controller
 		if ($retail = $request->get('retail')) $this->addNumConstraint($query, 'retail', $retail);
 		if ($year = $request->get('year')) $this->addNumConstraint($query, 'year', $year);
 
-		return response()->json($query->paginate());
+		return $query->paginate();
 	}
 
 	protected function addConstraint(Builder $query, $key, $value)

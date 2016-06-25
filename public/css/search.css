@@ -151,6 +151,11 @@ form input{
 	top: auto;
 }
 
+#paginate a[href=#] {
+	/* haalt pagination weg als niet nodig is (geen terug knop op 1e pagina etc) */
+	display: hidden;
+}
+
 div#paginate{
 	padding: 10px 20px;
 	text-align: center;

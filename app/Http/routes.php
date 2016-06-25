@@ -13,7 +13,7 @@ Route::get('/makehash', function ()
 Route::group(['prefix' => 'paintings', 'middleware' => ['web', 'auth']], function ()
 {
 	Route::get('', ['uses' => 'PaintingsController@showSearch', 'as' => 'search']);
-	Route::get('search', ['uses' => 'PaintingsController@doSearch', 'as' => 'handleSearch']);
+	// Route::get('search', ['uses' => 'PaintingsController@doSearch', 'as' => 'handleSearch']);
 
 	Route::get('{painting}', ['uses' => 'PaintingsController@showSinglePainting', 'as' => 'singlePainting']);
 });

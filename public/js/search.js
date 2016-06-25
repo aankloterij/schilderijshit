@@ -13,6 +13,7 @@ $(function(){
 		e.preventDefault();
 
 		formData = $(this).serialize();
+		pageUrl = $(this).action;
 
 		fix();
 	});
@@ -25,34 +26,57 @@ $(function(){
 		fix();
 	});
 
-	function fix()
-	{
-		var url = pageUrl + (pageUrl.indexOf('?') === -1 ? '?' : '&') + formData;
+	function updateUI(data) {
+
+		console.log(data);
+
+		var prev, next;
+
+		prev = (typeof data.prev_page_url !== 'undefined' && data.prev_page_url !== null) ? data.prev_page_url : '#';
+		next = (typeof data.next_page_url !== 'undefined' && data.next_page_url !== null) ? data.next_page_url : '#';
+
+		console.log(prev);
+
+		$('#prev').attr('href', prev);
+		$('#next').attr('href', next);
+
+
+		$('#results').empty();
+
+		for (var i = 0; i < data.data.length; i++) {
+			var item = data.data[i];
+
+			$('#template_result #result_name').text(item.naam);
+			$('#template_result #result_link').attr('href', item.url);
+			$('#template_result #result_preview').attr('src', item.image_location).attr('alt', item.naam);
+			$('#template_result #result_artist').text(item.artist);
+			$('#template_result #result_description').text(item.description);
+			$('#template_result #result_retail').text(item.retail);
+			$('#template_result #result_year').text(item.year);
+
+			var element = $('#template_result').clone();
+			element.removeAttr('id');
+
+			element.appendTo('#results');
+		}
+	}
+
+	function fix() {
+		var url = pageUrl;
+
+		url += (formData ? (pageUrl.indexOf('?') === -1 ? '?' : '&') + formData : '');
 
 		$.get(url, function (successdata)
 		{
-			$('#prev').attr('href', successdata.prev_page_url || '#');
-			$('#next').attr('href', successdata.next_page_url || '#');
+			successdata = JSON.parse(successdata);
 
-			$('#results').empty();
+			window.history.pushState(successdata, "Search paintings", url);
 
-			for (var i = 0; i < successdata.data.length; i++) {
-				var item = successdata.data[i];
-
-				$('#template_result #result_name').text(item.naam);
-				$('#template_result #result_link').attr('href', item.url);
-				$('#template_result #result_preview').attr('src', item.image_location).attr('alt', item.naam);
-				$('#template_result #result_artist').text(item.artist);
-				$('#template_result #result_description').text(item.description);
-				$('#template_result #result_retail').text(item.retail);
-				$('#template_result #result_year').text(item.year);
-
-				var element = $('#template_result').clone();
-				element.removeAttr('id');
-
-				element.appendTo('#results');
-			}
+			updateUI(successdata);
 		});
 	}
 
+	window.onpopstate = function (event) {
+		updateUI(event.state);
+	}
 });

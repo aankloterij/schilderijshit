@@ -219,3 +219,7 @@ input[type="submit"]{
 input[type="submit"]:active{
 	box-shadow: 1px 1px 7px 2px rgba(0, 0, 0, 0.2);
 }
+
+#paginate a[href="#"] {
+	visibility: hidden;
+}
