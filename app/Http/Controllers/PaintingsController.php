@@ -39,7 +39,7 @@ class PaintingsController extends Controller
 
 	protected function addNumConstraint(Builder $query, $key, $value)
 	{
-		if (preg_match("/(.*) (\d)/", $value, $matches))
+		if (preg_match("/([<>=]+) ?(\d+)$/", trim($value), $matches))
 		{
 			list($value, $operator, $ammount) = $matches;
 		}
@@ -52,7 +52,7 @@ class PaintingsController extends Controller
 
 		if ($operator == '<' || $operator == '>') $operator .= '=';
 
-		return $query->orWhere($key, $operator, preg_replace('/\D/', '', $ammount));
+		return $query->orWhere($key, $operator, (int) preg_replace('/\D/', '', $ammount));
 	}
 
 	public function showSinglePainting(Painting $painting)

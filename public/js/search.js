@@ -62,7 +62,7 @@ $(function(){
 	function fix() {
 		var url = pageUrl.split('#')[0];
 
-		url += (formData ? (pageUrl.indexOf('?') === -1 ? '?' : '&') + formData : '');
+		url = url.split('?')[0] + '?' + formData;
 
 		console.log(url);
 
@@ -77,9 +77,6 @@ $(function(){
 	}
 
 	window.onpopstate = function (event) {
-
-		console.log(document.html);
-
 		updateUI(event.state);
 	}
 });
