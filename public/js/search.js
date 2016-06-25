@@ -6,14 +6,16 @@ $(function(){
 
 	var formData;
 
-	var pageUrl = window.location.pathname + "/search";
+	var pageUrl = document.location.href;
 
 	form.on('submit', function (e)
 	{
 		e.preventDefault();
 
 		formData = $(this).serialize();
-		pageUrl = $(this).action;
+		pageUrl = $(this).get(0).action;
+
+		console.log(pageUrl);
 
 		fix();
 	});
@@ -28,14 +30,10 @@ $(function(){
 
 	function updateUI(data) {
 
-		console.log(data);
-
 		var prev, next;
 
 		prev = (typeof data.prev_page_url !== 'undefined' && data.prev_page_url !== null) ? data.prev_page_url : '#';
 		next = (typeof data.next_page_url !== 'undefined' && data.next_page_url !== null) ? data.next_page_url : '#';
-
-		console.log(prev);
 
 		$('#prev').attr('href', prev);
 		$('#next').attr('href', next);
@@ -62,9 +60,11 @@ $(function(){
 	}
 
 	function fix() {
-		var url = pageUrl;
+		var url = pageUrl.split('#')[0];
 
 		url += (formData ? (pageUrl.indexOf('?') === -1 ? '?' : '&') + formData : '');
+
+		console.log(url);
 
 		$.get(url, function (successdata)
 		{
@@ -77,6 +77,9 @@ $(function(){
 	}
 
 	window.onpopstate = function (event) {
+
+		console.log(document.html);
+
 		updateUI(event.state);
 	}
 });
